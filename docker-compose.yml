@@ -1,0 +1,24 @@
+version: '3'
+services:
+  api-inventory:
+    build: ./api-inventory
+    ports:
+      - 7000:5000
+      
+  api-item:
+    build: ./api-item
+    ports:
+      - 8000:5000
+      
+  api-user:
+    build: ./api-user
+    ports:
+      - 9000:5000
+  
+  
+  website-app:
+    build: ./web-app
+    ports:
+      - 127.0.0.1:8080:80
+    volumes:
+      - ./web-app/public-html:/usr/local/apache2/htdocs  
